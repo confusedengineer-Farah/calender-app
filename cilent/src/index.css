@@ -27,15 +27,15 @@ body {
   text-align: center;
 }
 
-.calendar-grid> div{
+.day-cell {
   min-height: 100px;
   padding: 10px;
   border: 1px solid #ddd;
 }
 
-.calendar-grid > div.outside-month {
+.day-cell.outside-month {
   opacity: 0.4;
 }
-.calendar-grid > div.today {
+.day-cell.today {
   font-weight: bold;
 }
