@@ -3,6 +3,8 @@ import{
     endOfMonth,
     endOfWeek,
     format,
+    isSameDay,
+    isSameMonth,
     startOfMonth,
     startOfWeek
 } from "date-fns";
@@ -18,6 +20,8 @@ function MonthView({currentDate}:MonthViewProps){
     const calendarStart = startOfWeek(monthStart);
     const calendarEnd = endOfWeek(monthEnd);
 
+    const today = new Date();
+
     const days = eachDayOfInterval({
         start: calendarStart,
         end: calendarEnd,
@@ -30,9 +34,21 @@ function MonthView({currentDate}:MonthViewProps){
                 ))}
             </div>
             <div className="calendar-grid">
-                {days.map((day) => (
-                    <div key={day.toISOString()}>{format(day,"d")}</div>
-                ))}
+                {days.map((day) => {
+                    const isToday = isSameDay(day, today);
+                    const isCurrentMonth = isSameMonth(day, currentDate);
+                    
+                    return (
+                        <div
+                        key={day.toISOString()}
+                        className={`${isToday ? "today" : ""} ${
+                            !isCurrentMonth ? "outside-month" : ""
+                        }`}
+                        >
+                            {format(day,"d")}
+                        </div>
+                    )
+                })}
             </div>
         </section>
     )

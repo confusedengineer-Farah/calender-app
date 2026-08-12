@@ -32,3 +32,10 @@ body {
   padding: 10px;
   border: 1px solid #ddd;
 }
+
+.calendar-grid > div.outside-month {
+  opacity: 0.4;
+}
+.calendar-grid > div.today {
+  font-weight: bold;
+}
