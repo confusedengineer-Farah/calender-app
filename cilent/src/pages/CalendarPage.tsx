@@ -6,6 +6,7 @@ import MonthView from "../components/calendar/MonthView";
 
 function CalendarPage() {
     const[currentDate, setCurrentDate ] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
     function goToPreviousMonth(){
         setCurrentDate((date) => subMonths(date,1));
@@ -24,7 +25,11 @@ function CalendarPage() {
             onNextMonth={goToNextMonth}
             onToday={goToToday}
             />
-            <MonthView currentDate ={currentDate}/>
+            <MonthView 
+            currentDate = {currentDate}
+            selectedDate = {selectedDate}
+            onSelectDate = {setSelectedDate}
+            />
         </main>
     )
 }

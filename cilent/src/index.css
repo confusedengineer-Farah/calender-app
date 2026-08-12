@@ -39,3 +39,7 @@ body {
 .day-cell.today {
   font-weight: bold;
 }
+
+.day-cell.selelcted {
+  outline : 2px solid black;
+}

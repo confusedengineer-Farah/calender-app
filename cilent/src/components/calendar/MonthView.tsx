@@ -9,9 +9,15 @@ import{
 
 interface MonthViewProps{
     currentDate: Date;
+    selectedDate: Date| null;
+    onSelectDate:(date:Date) => void;
 }
 
-function MonthView({currentDate}:MonthViewProps){
+function MonthView({
+    currentDate,
+    selectedDate,
+    onSelectDate,
+    }:MonthViewProps){
     const monthStart = startOfMonth(currentDate);
     const monthEnd = endOfMonth(currentDate);
 
@@ -35,6 +41,8 @@ function MonthView({currentDate}:MonthViewProps){
                     key={day.toISOString()}
                     day={day}
                     currentDate={currentDate}
+                    selectedDate={selectedDate}
+                    onSelectDate={onSelectDate}
                     />
                 ))}
             </div>
