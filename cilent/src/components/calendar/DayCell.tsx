@@ -43,11 +43,14 @@ function DayCell({
         >
         <div> {format(day, "d")}</div>  
         <div>
-            {dayEvents.map((event)=>
-              <div key={event.id}>
+            {dayEvents.map((event)=>(
+              <div
+              key={event.id}
+              className= "calendar-event"
+              style={{backgroundColor:event.color}}>
                 {event.title}
               </div>
-            )}
+            ))}
         </div>  
 
 

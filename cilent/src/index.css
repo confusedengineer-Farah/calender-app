@@ -43,3 +43,13 @@ body {
 .day-cell.selelcted {
   outline : 2px solid black;
 }
+.calendar-event{
+  margin-top: 6px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  color:white;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
