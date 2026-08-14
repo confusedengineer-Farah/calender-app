@@ -35,6 +35,7 @@ function CalendarPage() {
             currentDate = {currentDate}
             selectedDate = {selectedDate}
             onSelectDate = {handleSelectDate}
+            events = {[]}
             />
             {isEventFormOpen && selectedDate && (
                 <EventForm

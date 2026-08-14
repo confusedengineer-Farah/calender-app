@@ -1,4 +1,5 @@
 import DayCell from "./DayCell";
+import type { CalendarEvent } from "../../types/event";
 import{
     eachDayOfInterval,
     endOfMonth,
@@ -11,12 +12,14 @@ interface MonthViewProps{
     currentDate: Date;
     selectedDate: Date| null;
     onSelectDate:(date:Date) => void;
+    events: CalendarEvent[];
 }
 
 function MonthView({
     currentDate,
     selectedDate,
     onSelectDate,
+    events,
     }:MonthViewProps){
     const monthStart = startOfMonth(currentDate);
     const monthEnd = endOfMonth(currentDate);
@@ -43,6 +46,7 @@ function MonthView({
                     currentDate={currentDate}
                     selectedDate={selectedDate}
                     onSelectDate={onSelectDate}
+                    events={events}
                     />
                 ))}
             </div>
