@@ -8,6 +8,7 @@ interface DayCellProps{
     selectedDate: Date | null;
     onSelectDate: (date: Date) => void;
     events: CalendarEvent[];
+    onSelectEvent: (event:CalendarEvent) => void;
 }
 
 function DayCell({
@@ -16,6 +17,7 @@ function DayCell({
     selectedDate,
     onSelectDate,
     events,
+    onSelectEvent,
     }: DayCellProps){
     const today = new Date();
 
@@ -47,7 +49,11 @@ function DayCell({
               <div
               key={event.id}
               className= "calendar-event"
-              style={{backgroundColor:event.color}}>
+              style={{backgroundColor:event.color}}
+              onClick={(clickEvent) =>{
+                clickEvent.stopPropagation();
+                onSelectEvent(event)
+;              }}>
                 {event.title}
               </div>
             ))}

@@ -13,6 +13,7 @@ interface MonthViewProps{
     selectedDate: Date| null;
     onSelectDate:(date:Date) => void;
     events: CalendarEvent[];
+    onSelectEvent:(event:CalendarEvent) =>void;
 }
 
 function MonthView({
@@ -20,6 +21,7 @@ function MonthView({
     selectedDate,
     onSelectDate,
     events,
+    onSelectEvent,
     }:MonthViewProps){
     const monthStart = startOfMonth(currentDate);
     const monthEnd = endOfMonth(currentDate);
@@ -47,6 +49,7 @@ function MonthView({
                     selectedDate={selectedDate}
                     onSelectDate={onSelectDate}
                     events={events}
+                    onSelectEvent= {onSelectEvent}
                     />
                 ))}
             </div>
